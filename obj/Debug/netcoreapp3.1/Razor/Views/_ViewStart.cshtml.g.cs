@@ -26,8 +26,15 @@ using EcoU.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "/Users/datanton/Projects/EcoU/Views/_ViewImports.cshtml"
+using EcoU.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"38beae5d7ad02fa9bd7e35ffd1f040bdef8e1ee8", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a3551b9ea83ac1a96fc21702219f88832b87965c", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

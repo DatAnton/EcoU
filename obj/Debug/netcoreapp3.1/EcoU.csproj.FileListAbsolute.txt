@@ -74,3 +74,5 @@
 /Users/datanton/Projects/EcoU/obj/Debug/netcoreapp3.1/staticwebassets/EcoU.StaticWebAssets.xml
 /Users/datanton/Projects/EcoU/obj/Debug/netcoreapp3.1/EcoU.dll
 /Users/datanton/Projects/EcoU/obj/Debug/netcoreapp3.1/EcoU.pdb
+/Users/datanton/Projects/EcoU/obj/Debug/netcoreapp3.1/Razor/Views/Account/LogIn.cshtml.g.cs
+/Users/datanton/Projects/EcoU/obj/Debug/netcoreapp3.1/Razor/Views/Account/SignIn.cshtml.g.cs
