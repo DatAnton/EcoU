@@ -1,3 +1,43 @@
-﻿@page
-@{
-}
+﻿@model LoginViewModel
+<h2>Login</h2>
+
+<form method="post" asp-action="LogIn" asp-controller="Account">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div>
+        <label asp-for="Password">Password</label>
+        <input id="passwordField" asp-for="Password" type="password" />
+        <img id="buttonShow" src="https://icons.iconarchive.com/icons/iconsmind/outline/512/Eye-2-icon.png" height="40px" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <div>
+        <label asp-for="RememberMe"></label>
+        <input asp-for="RememberMe" />
+    </div>
+
+    <div>
+        <input type="submit" value="Log In" />
+    </div>
+
+</form>
+
+<a asp-action="SignIn" asp-controller="Account" class="btn-dark">Sign in</a>
+
+<script>
+
+    var buttonShow = document.getElementById("buttonShow");
+    var passwordField = document.getElementById("passwordField");
+    buttonShow.addEventListener("mousedown", function () {
+        passwordField.type = "text";
+    });
+    buttonShow.addEventListener("mouseup", function () {
+        passwordField.type = "password";
+    });
+</script>

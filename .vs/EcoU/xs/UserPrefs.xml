@@ -1,24 +1,24 @@
 ﻿<Properties StartupConfiguration="{058521FA-545A-4FB3-9434-BF583D392524}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/js/site.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/User.cs">
     <Files>
-      <File FileName="Models/User.cs" Line="8" Column="1" />
-      <File FileName="Models/ProjectContext.cs" />
+      <File FileName="Models/ProjectContext.cs" Line="1" Column="1" />
       <File FileName="appsettings.json" />
-      <File FileName="Startup.cs" Line="32" Column="57" />
-      <File FileName="ViewModels/LoginViewModel.cs" Line="8" Column="18" />
-      <File FileName="ViewModels/SignInViewModel.cs" Line="7" Column="15" />
-      <File FileName="Validators/SignInAgeAttribute.cs" Line="17" Column="50" />
-      <File FileName="Controllers/AccountController.cs" Line="66" Column="70" />
-      <File FileName="Views/Account/SignIn.cshtml" Line="49" Column="1" />
-      <File FileName="Views/_ViewImports.cshtml" Line="2" Column="2" />
-      <File FileName="Views/_ViewStart.cshtml" Line="1" Column="1" />
-      <File FileName="Views/Account/LogIn.cshtml" Line="41" Column="39" />
-      <File FileName="Views/Home/Index.cshtml" Line="16" Column="72" />
-      <File FileName="Controllers/HomeController.cs" Line="6" Column="32" />
-      <File FileName="Views/Shared/_Layout.cshtml" Line="31" Column="101" />
-      <File FileName="Views/Shared/Error.cshtml" Line="1" Column="1" />
-      <File FileName="Views/Shared/_ValidationScriptsPartial.cshtml" Line="1" Column="1" />
-      <File FileName="wwwroot/js/site.js" Line="1" Column="1" />
+      <File FileName="Startup.cs" />
+      <File FileName="ViewModels/LoginViewModel.cs" Line="8" Column="10" />
+      <File FileName="ViewModels/SignInViewModel.cs" Line="7" Column="10" />
+      <File FileName="Validators/SignInAgeAttribute.cs" Line="1" Column="1" />
+      <File FileName="Controllers/AccountController.cs" Line="94" Column="1" />
+      <File FileName="Views/Account/SignIn.cshtml" Line="1" Column="1" />
+      <File FileName="Views/_ViewImports.cshtml" />
+      <File FileName="Views/_ViewStart.cshtml" />
+      <File FileName="Views/Account/LogIn.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Home/Index.cshtml" />
+      <File FileName="Controllers/HomeController.cs" Line="43" Column="1" />
+      <File FileName="Views/Shared/_Layout.cshtml" />
+      <File FileName="Views/Shared/Error.cshtml" />
+      <File FileName="Views/Shared/_ValidationScriptsPartial.cshtml" />
+      <File FileName="Models/ErrorViewModel.cs" Line="1" Column="1" />
+      <File FileName="Models/User.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -27,6 +27,9 @@
             <Node name="EcoU" expanded="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="User.cs" selected="True" />
+              </Node>
               <Node name="Validators" expanded="True" />
               <Node name="ViewModels" expanded="True" />
               <Node name="Views" expanded="True">
@@ -35,9 +38,7 @@
                 <Node name="Shared" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
-                <Node name="js" expanded="True">
-                  <Node name="site.js" selected="True" />
-                </Node>
+                <Node name="js" expanded="True" />
               </Node>
             </Node>
           </Node>

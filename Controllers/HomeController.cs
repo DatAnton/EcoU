@@ -4,23 +4,28 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
+
 using EcoU.Models;
 
 namespace EcoU.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly UserManager<User> _userManager;
+        public HomeController(UserManager<User> userManager)
         {
-            _logger = logger;
+            _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            User user = null;
+            if (User.Identity.IsAuthenticated)
+            {
+                user = await _userManager.FindByIdAsync(_userManager.GetUserId(HttpContext.User));
+            }
+            return View(user);
         }
 
         public IActionResult Privacy()
