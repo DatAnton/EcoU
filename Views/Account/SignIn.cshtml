@@ -1,7 +1,7 @@
 ﻿@model SignInViewModel
 <h2>Sign in to use this app</h2>
 
-<form method="post" asp-action="SignIn" asp-controller="Account">
+<form method="post" asp-action="SignIn" asp-controller="Account" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
         <label asp-for="UserName">Username</label>
@@ -37,6 +37,12 @@
         <label asp-for="PasswordConfirmation">Confirm your password</label>
         <input asp-for="PasswordConfirmation" type="password" />
         <span asp-validation-for="PasswordConfirmation"></span>
+    </div>
+
+    <div>
+        <label asp-for="Avatar">Avatar</label>
+        <input asp-for="Avatar" type="file" />
+        <span asp-validation-for="Avatar" class="text-danger"></span>  
     </div>
 
     <div>

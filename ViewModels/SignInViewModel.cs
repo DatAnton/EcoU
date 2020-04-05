@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using EcoU.Validators;
+using Microsoft.AspNetCore.Http;
 
 namespace EcoU.ViewModels
 {
@@ -33,6 +34,10 @@ namespace EcoU.ViewModels
         [Required(ErrorMessage = "Password Confirmation cannot be blank.")]
         [DataType(DataType.Password)]
         public string PasswordConfirmation { get; set; }
+
+        [Required(ErrorMessage = "Please choose image for profile.")]
+        [Display(Name = "Profile picture.")]
+        public IFormFile Avatar { get; set; }
 
     }
 }

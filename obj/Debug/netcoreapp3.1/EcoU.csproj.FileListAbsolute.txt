@@ -76,3 +76,4 @@
 /Users/datanton/Projects/EcoU/obj/Debug/netcoreapp3.1/EcoU.pdb
 /Users/datanton/Projects/EcoU/obj/Debug/netcoreapp3.1/Razor/Views/Account/LogIn.cshtml.g.cs
 /Users/datanton/Projects/EcoU/obj/Debug/netcoreapp3.1/Razor/Views/Account/SignIn.cshtml.g.cs
+/Users/datanton/Projects/EcoU/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Identity;
 
 using EcoU.ViewModels;
 using EcoU.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace EcoU.Controllers
 {
@@ -14,11 +16,13 @@ namespace EcoU.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IWebHostEnvironment webHost)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _webHostEnvironment = webHost;
         }
 
         [HttpGet]
@@ -32,11 +36,13 @@ namespace EcoU.Controllers
         {
             if (ModelState.IsValid)
             {
+                string uniqueFileName = UploadFile(model);
                 User user = new User
                 {
                     Email = model.Email,
                     LifeMessage = model.LifeMessage,
-                    UserName = model.UserName
+                    UserName = model.UserName,
+                    ProfilePicture = uniqueFileName
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -87,6 +93,22 @@ namespace EcoU.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        private string UploadFile(SignInViewModel model)
+        {
+            string uniqueFileName = null;
+            if(model.Avatar != null)
+            {
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Avatar.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.Avatar.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
         }
 
     }
