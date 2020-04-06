@@ -3,73 +3,20 @@ using System;
 using EcoU.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EcoU.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    partial class ProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20200405221713_AddingCleaningPlan")]
+    partial class AddingCleaningPlan
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.3");
-
-            modelBuilder.Entity("EcoU.Models.CleaningPlan", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("CreatorId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Describing")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("LocationId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("LocationId1")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("MainPhoto")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("PlanDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PlanName")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CreatorId");
-
-                    b.HasIndex("LocationId1");
-
-                    b.ToTable("CleaningPlan");
-                });
-
-            modelBuilder.Entity("EcoU.Models.Location", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Region")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Town")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Location");
-                });
 
             modelBuilder.Entity("EcoU.Models.User", b =>
                 {
@@ -268,17 +215,6 @@ namespace EcoU.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("EcoU.Models.CleaningPlan", b =>
-                {
-                    b.HasOne("EcoU.Models.User", "Creator")
-                        .WithMany("CleaningPlans")
-                        .HasForeignKey("CreatorId");
-
-                    b.HasOne("EcoU.Models.Location", "Location")
-                        .WithMany("CleaningPlans")
-                        .HasForeignKey("LocationId1");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
