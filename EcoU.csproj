@@ -18,5 +18,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
     <Folder Include="SampleData\" />
+    <Folder Include="Views\CleaningPlans\" />
   </ItemGroup>
 </Project>

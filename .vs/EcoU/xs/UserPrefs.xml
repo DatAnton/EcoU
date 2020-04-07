@@ -1,48 +1,50 @@
 ﻿<Properties StartupConfiguration="{058521FA-545A-4FB3-9434-BF583D392524}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/CleaningPlansController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/LocationsController.cs">
     <Files>
       <File FileName="Models/ProjectContext.cs" Line="11" Column="1" />
       <File FileName="appsettings.json" />
       <File FileName="Startup.cs" />
-      <File FileName="ViewModels/LoginViewModel.cs" Line="19" Column="1" />
-      <File FileName="ViewModels/SignInViewModel.cs" Line="40" Column="32" />
-      <File FileName="Validators/SignInAgeAttribute.cs" Line="21" Column="1" />
-      <File FileName="Controllers/AccountController.cs" Line="38" Column="14" />
-      <File FileName="Views/Account/SignIn.cshtml" Line="45" Column="42" />
+      <File FileName="ViewModels/LoginViewModel.cs" />
+      <File FileName="ViewModels/SignInViewModel.cs" />
+      <File FileName="Validators/SignInAgeAttribute.cs" />
+      <File FileName="Controllers/AccountController.cs" />
+      <File FileName="Views/Account/SignIn.cshtml" />
       <File FileName="Views/_ViewImports.cshtml" />
       <File FileName="Views/_ViewStart.cshtml" />
       <File FileName="Views/Account/LogIn.cshtml" />
-      <File FileName="Views/Home/Index.cshtml" Line="14" Column="9" />
+      <File FileName="Views/Home/Index.cshtml" />
       <File FileName="Controllers/HomeController.cs" />
       <File FileName="Views/Shared/_Layout.cshtml" />
       <File FileName="Views/Shared/Error.cshtml" />
       <File FileName="Views/Shared/_ValidationScriptsPartial.cshtml" />
       <File FileName="Models/ErrorViewModel.cs" />
-      <File FileName="Models/User.cs" Line="14" Column="62" />
-      <File FileName="Migrations/20200405192130_AddingAvatar.cs" Line="13" Column="49" />
-      <File FileName="Models/CleaningPlan.cs" Line="16" Column="44" />
-      <File FileName="Models/Location.cs" Line="8" Column="28" />
-      <File FileName="Migrations/20200405221713_AddingCleaningPlan.cs" Line="39" Column="58" />
-      <File FileName="Migrations/20200405225734_AddingLocation.cs" Line="11" Column="32" />
-      <File FileName="SampleData/SampleLocationData.cs" Line="23" Column="47" />
-      <File FileName="Program.cs" Line="34" Column="14" />
-      <File FileName="SampleData/towns.txt" Line="2" Column="1" />
-      <File FileName="Controllers/CleaningPlansController.cs" Line="11" Column="19" />
+      <File FileName="Models/User.cs" />
+      <File FileName="Migrations/20200405192130_AddingAvatar.cs" />
+      <File FileName="Models/CleaningPlan.cs" />
+      <File FileName="Models/Location.cs" />
+      <File FileName="Migrations/20200405221713_AddingCleaningPlan.cs" />
+      <File FileName="Migrations/20200405225734_AddingLocation.cs" />
+      <File FileName="SampleData/SampleLocationData.cs" />
+      <File FileName="Program.cs" />
+      <File FileName="SampleData/towns.txt" />
+      <File FileName="Controllers/CleaningPlansController.cs" />
+      <File FileName="ViewModels/CleanPlanViewModel.cs" />
+      <File FileName="Views/CleaningPlans/Create.cshtml" Line="69" Column="10" />
+      <File FileName="Controllers/LocationsController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EcoU" expanded="True">
             <Node name="EcoU" expanded="True">
-              <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True">
-                <Node name="CleaningPlansController.cs" selected="True" />
+                <Node name="LocationsController.cs" selected="True" />
               </Node>
               <Node name="Models" expanded="True" />
-              <Node name="SampleData" expanded="True" />
               <Node name="ViewModels" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Account" expanded="True" />
+                <Node name="CleaningPlans" expanded="True" />
                 <Node name="Home" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True" />

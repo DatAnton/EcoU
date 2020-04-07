@@ -1,0 +1,81 @@
+﻿@model CleanPlanViewModel
+<h2>Create your Cleaning plan!</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="PlanName">Name of plan</label>
+        <input asp-for="PlanName" />
+        <span asp-validation-for="PlanName"></span>
+    </div>
+
+    <div>
+        <label asp-for="Describing">Describing of plan</label>
+        <input asp-for="Describing" />
+        <span asp-validation-for="Describing"></span>
+    </div>
+
+    <div>
+        <label asp-for="PlanDate">Datetime</label>
+        <input asp-for="PlanDate" type="datetime-local" />
+        <span asp-validation-for="PlanDate"></span>
+    </div>
+
+    <div id="app">
+        <div>
+            <label>Region</label>
+            <select v-model="selectedRegion" >
+                <option v-for="region in Regions" v-bind:value="region">{{ region }}</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Town</label>
+            <select asp-for="LocationId">
+                <option v-for="town in Towns" v-bind:value="town.id">{{ town.town }}</option>
+            </select>
+            <span asp-validation-for="LocationId"></span>
+        </div>
+    </div>
+
+    <div>
+        <label asp-for="Address">Address in town</label>
+        <input asp-for="Address" />
+        <span asp-validation-for="Address"></span>
+    </div>
+
+    <div>
+        <label asp-for="MainPhoto">Upload main photo</label>
+        <input asp-for="MainPhoto" type="file" />
+        <span asp-validation-for="MainPhoto"></span>
+    </div>
+    
+    <div>
+        <input type="submit" value="Create" />
+    </div>
+
+</form>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data:{
+            Regions: Array,
+            selectedRegion: '',
+            Towns: Array
+        },
+        mounted: async function(){
+            const response = await fetch('/Locations/getRegions');
+            const regions = await response.json();
+            this.Regions = regions;
+        },
+        watch: {
+            selectedRegion: async function(){
+                const response = await fetch(`/Locations/getTowns?region=${this.selectedRegion}`);
+                const towns = await response.json();
+                this.Towns = towns;
+            }
+        }
+    });
+</script>
