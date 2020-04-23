@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EcoU.Controllers
 {
+    [Authorize]
     public class CleaningPlansController : Controller
     {
         private readonly ProjectContext db;
@@ -27,6 +28,7 @@ namespace EcoU.Controllers
             webHostEnvironment = webHost;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Show(int? id)
         {
@@ -53,6 +55,8 @@ namespace EcoU.Controllers
                 .Include(p => p.Location).FirstOrDefault(p => p.Id == id);
             if (plan == null)
                 return NotFound();
+            if (plan.CreatorId != userManager.GetUserId(HttpContext.User))
+                return BadRequest();
 
             CleanPlanViewModel model = new CleanPlanViewModel
             {
@@ -64,6 +68,7 @@ namespace EcoU.Controllers
                 Location = plan.Location,
                 MainPhotoString = plan.MainPhoto,
                 LocationId = plan.LocationId,
+                CreatorId = plan.CreatorId
             };
             return View(model);
         }
@@ -71,6 +76,11 @@ namespace EcoU.Controllers
         [HttpPost]
         public IActionResult Edit(CleanPlanViewModel model)
         {
+            Console.WriteLine(model.CreatorId);
+
+            if (model.CreatorId != userManager.GetUserId(HttpContext.User))
+                return BadRequest();
+
             CleaningPlan plan = new CleaningPlan
             {
                 Id = model.Id,
@@ -103,6 +113,32 @@ namespace EcoU.Controllers
             return RedirectToAction("Show", new { id = plan.Id});
         }
 
+        [HttpPost]
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+                return BadRequest();
+            CleaningPlan plan = db.CleaningPlans.FirstOrDefault(p => p.Id == id);
+            if (plan != null)
+            {
+                if (plan.CreatorId != userManager.GetUserId(HttpContext.User))
+                    return BadRequest();
+                else {
+                    string path = Path.Combine(webHostEnvironment.WebRootPath, "images");
+                    string filePath = Path.Combine(path, plan.MainPhoto);
+                    System.IO.File.Delete(filePath);
+
+                    db.CleaningPlans.Remove(plan);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            return NotFound();
+
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
         public IActionResult Index(int? LocationId, string planNameFind)
         {
             //try use location.cleaningPlans
@@ -129,7 +165,6 @@ namespace EcoU.Controllers
             return View(model);
         }
 
-        [Authorize]
         [HttpGet]
         public IActionResult Create()
         {
@@ -138,7 +173,6 @@ namespace EcoU.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
         public IActionResult Create(CleanPlanViewModel model)
         {
             if (ModelState.IsValid)

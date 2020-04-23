@@ -10,6 +10,8 @@ namespace EcoU.ViewModels
         public int Id { get; set; }
         public Location Location { get; set; }
 
+        public string CreatorId { get; set; }
+
         [Required(ErrorMessage = "Name of plan cannot be blank!"),
             MaxLength(50, ErrorMessage = "Should be not more 50 characters."),
             MinLength(10, ErrorMessage = "Should be not less 10 characters.")]
