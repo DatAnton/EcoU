@@ -1,0 +1,23 @@
+﻿@model IndexPlansModel
+
+<h2>Cleaning plans</h2>
+
+@await Html.PartialAsync("FindingFilter")
+<div class="row row-cols-1 row-cols-md-2">
+    @foreach(var plan in Model.Plans)
+    {
+        <div class="col mb-4">
+            <div class="card">
+                @if (plan.MainPhoto != null)
+                {
+                    <img src="~/images/@plan.MainPhoto" class="card-img-top" alt="clean">
+                }
+              <div class="card-body">
+                <h5 class="card-title"><a asp-controller="CleaningPlans" asp-action="Show" asp-route-id="@plan.Id">@plan.PlanName</a></h5>
+                <p class="card-text">@(plan.Location.Town + " " + plan.Address)</p>
+                <p class="card-text"><small class="text-muted">@plan.PlanDate.ToString("dd/MM/yyyy h:mm tt")</small></p>
+              </div>
+            </div>
+        </div>
+    }
+</div>

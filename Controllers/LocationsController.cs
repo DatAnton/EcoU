@@ -25,8 +25,9 @@ namespace EcoU.Controllers
 
         public IActionResult getTowns(string region)
         {
-            var locations = db.Locations.Where(p => EF.Functions.Like(p.Region, $"%{region}%"));
+            var locations = db.Locations.Where(p => p.Region == region);
             return Ok(locations);
         }
+
     }
 }

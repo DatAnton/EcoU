@@ -1,11 +1,15 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
+using EcoU.Models;
 
 namespace EcoU.ViewModels
 {
     public class CleanPlanViewModel
     {
+        public int Id { get; set; }
+        public Location Location { get; set; }
+
         [Required(ErrorMessage = "Name of plan cannot be blank!"),
             MaxLength(50, ErrorMessage = "Should be not more 50 characters."),
             MinLength(10, ErrorMessage = "Should be not less 10 characters.")]
@@ -23,5 +27,6 @@ namespace EcoU.ViewModels
         [Required(ErrorMessage = "Specify address where cleaning will be take part.")]
         public string Address { get; set; }
         public IFormFile MainPhoto { get; set; }
+        public string MainPhotoString { get; set; }
     }
 }

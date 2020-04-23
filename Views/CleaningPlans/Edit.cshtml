@@ -1,0 +1,101 @@
+﻿@model CleanPlanViewModel
+
+<h2>Edit your Cleaning plan!</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="PlanName">Name of plan</label>
+        <input asp-for="PlanName" />
+        <span asp-validation-for="PlanName"></span>
+    </div>
+
+    <div>
+        <label asp-for="Describing">Describing of plan</label>
+        <input asp-for="Describing" />
+        <span asp-validation-for="Describing"></span>
+    </div>
+
+    <div>
+        <label asp-for="PlanDate">Datetime</label>
+        <input asp-for="PlanDate" type="datetime-local" />
+        <span asp-validation-for="PlanDate"></span>
+    </div>
+
+    <div id="app">
+        <lists v-bind:location_in="{ region: '@Model.Location.Region', town: @Model.LocationId }"></lists>
+    </div>
+
+    <div>
+        <label asp-for="Address">Address in town</label>
+        <input asp-for="Address" />
+        <span asp-validation-for="Address"></span>
+    </div>
+
+    <div>
+        <img src="~/images/@Model.MainPhotoString" style="width:150px" /><br />
+        <label asp-for="MainPhoto">Upload main photo</label>
+        <input asp-for="MainPhoto" type="file" />
+        <span asp-validation-for="MainPhoto"></span>
+    </div>
+
+    <input type="hidden" asp-for="MainPhotoString">
+
+    <div>
+        <input type="submit" value="Update" />
+    </div>
+
+</form>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+
+    Vue.component('lists', {
+	    template: `
+        <div>
+            <div>
+                <label>Region</label>
+                <select v-model="selectedRegion" >
+                    <option v-for="region in Regions" v-bind:value="region">{{ region }}</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Town</label>
+                <select v-model="selectedTown" name="LocationId">
+                    <option v-for="town in Towns" v-bind:value="town.id">{{ town.town }}</option>
+                </select>
+                <span asp-validation-for="LocationId"></span>
+            </div>
+        </div>`,
+        data: function() {
+            return {
+                Regions: Array,
+                selectedRegion: '',
+                Towns: Array,
+                selectedTown: Number
+            }
+        },
+        props: {
+            location_in: Object
+        },
+        mounted: async function(){
+            const response = await fetch('/Locations/getRegions');
+            const regions = await response.json();
+            this.Regions = regions;
+            this.selectedRegion = this.location_in.region;
+            this.selectedTown = this.location_in.town;
+        },
+        watch: {
+            selectedRegion: async function(){
+                const response = await fetch(`/Locations/getTowns?region=${this.selectedRegion}`);
+                const towns = await response.json();
+                this.Towns = towns;
+            }
+        }
+    })
+
+    var app = new Vue({
+        el: "#app"
+    });
+</script>

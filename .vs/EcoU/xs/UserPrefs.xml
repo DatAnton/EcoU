@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{058521FA-545A-4FB3-9434-BF583D392524}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/LocationsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/CleaningPlans/Edit.cshtml">
     <Files>
-      <File FileName="Models/ProjectContext.cs" Line="11" Column="1" />
+      <File FileName="Models/ProjectContext.cs" Line="9" Column="30" />
       <File FileName="appsettings.json" />
       <File FileName="Startup.cs" />
       <File FileName="ViewModels/LoginViewModel.cs" />
@@ -12,7 +12,7 @@
       <File FileName="Views/_ViewImports.cshtml" />
       <File FileName="Views/_ViewStart.cshtml" />
       <File FileName="Views/Account/LogIn.cshtml" />
-      <File FileName="Views/Home/Index.cshtml" />
+      <File FileName="Views/Home/Index.cshtml" Line="12" Column="28" />
       <File FileName="Controllers/HomeController.cs" />
       <File FileName="Views/Shared/_Layout.cshtml" />
       <File FileName="Views/Shared/Error.cshtml" />
@@ -27,24 +27,26 @@
       <File FileName="SampleData/SampleLocationData.cs" />
       <File FileName="Program.cs" />
       <File FileName="SampleData/towns.txt" />
-      <File FileName="Controllers/CleaningPlansController.cs" />
+      <File FileName="Controllers/CleaningPlansController.cs" Line="46" Column="26" />
       <File FileName="ViewModels/CleanPlanViewModel.cs" />
-      <File FileName="Views/CleaningPlans/Create.cshtml" Line="69" Column="10" />
-      <File FileName="Controllers/LocationsController.cs" Line="1" Column="1" />
+      <File FileName="Views/CleaningPlans/Create.cshtml" />
+      <File FileName="Controllers/LocationsController.cs" />
+      <File FileName="Views/CleaningPlans/Index.cshtml" Line="16" Column="114" />
+      <File FileName="Views/CleaningPlans/FindingFilter.cshtml" Line="1" Column="1" />
+      <File FileName="Views/CleaningPlans/Show.cshtml" Line="18" Column="73" />
+      <File FileName="Views/CleaningPlans/Edit.cshtml" Line="1" Column="8" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EcoU" expanded="True">
             <Node name="EcoU" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="LocationsController.cs" selected="True" />
-              </Node>
-              <Node name="Models" expanded="True" />
-              <Node name="ViewModels" expanded="True" />
+              <Node name="Controllers" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Account" expanded="True" />
-                <Node name="CleaningPlans" expanded="True" />
+                <Node name="CleaningPlans" expanded="True">
+                  <Node name="Edit.cshtml" selected="True" />
+                </Node>
                 <Node name="Home" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True" />

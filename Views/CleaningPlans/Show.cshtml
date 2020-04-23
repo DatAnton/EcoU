@@ -1,0 +1,20 @@
+﻿@model CleaningPlan
+
+<div>
+    <p><a asp-action="Index"> <- To plans </a></p>
+
+    <h2>Cleaning plan: @Model.PlanName</h2>
+
+    <img src="~/images/@Model.MainPhoto" style="width:300px" />
+
+    <h3>Town: @Model.Location.Town, @Model.Location.Region</h3>
+    <h3>Address: @Model.Address</h3>
+
+    <h3>Date: @Model.PlanDate.ToString("dd/MM/yyyy hh:mm")</h3>
+
+    <h3>Creator: @Model.Creator.UserName (@Model.Creator.Email).</h3>
+    @if(ViewBag.CurrectUserId == Model.CreatorId)
+    {
+        <a asp-action="Edit" asp-route-id="@Model.Id" role="button" class="btn btn-warning">Edit my plan</a>
+    }
+</div>
