@@ -146,8 +146,14 @@ namespace EcoU.Controllers
             IQueryable<CleaningPlan> cleaningPlans = db.CleaningPlans
                 .Include(p => p.Location);
 
-            if (locationId != null)
+            if (locationId != null && locationId > 0)
                 cleaningPlans = cleaningPlans.Where(p => p.LocationId == locationId);
+
+            else if(locationId == 0 && !string.IsNullOrEmpty(locationRegion))
+            {
+                if(locationRegion != "All country")
+                    cleaningPlans = cleaningPlans.Where(p => p.Location.Region == locationRegion);
+            }
 
 
             if (!string.IsNullOrEmpty(planNameFind))
