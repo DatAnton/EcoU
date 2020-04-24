@@ -139,18 +139,18 @@ namespace EcoU.Controllers
 
         [AllowAnonymous]
         [HttpGet]
-        public IActionResult Index(int? LocationId, string planNameFind)
+        public IActionResult Index(int? locationId, string planNameFind, string locationRegion)
         {
-            //try use location.cleaningPlans
-            //finding by all region
+            //finding by all region?
 
             IQueryable<CleaningPlan> cleaningPlans = db.CleaningPlans
                 .Include(p => p.Location);
 
-            if (LocationId != null)
-                cleaningPlans = cleaningPlans.Where(p => p.LocationId == LocationId);
+            if (locationId != null)
+                cleaningPlans = cleaningPlans.Where(p => p.LocationId == locationId);
 
-            if(!string.IsNullOrEmpty(planNameFind))
+
+            if (!string.IsNullOrEmpty(planNameFind))
             {
                 cleaningPlans = cleaningPlans
                     .Where(p => p.PlanName.ToLower().Contains(planNameFind.ToLower()));
@@ -159,9 +159,11 @@ namespace EcoU.Controllers
             IndexPlansModel model = new IndexPlansModel
             {
                 Plans = cleaningPlans.ToList(),
-                PlanName = planNameFind
+                PlanNameFind = planNameFind,
+                LocationRegionFind = locationRegion,
+                LocationId = locationId
             };
-            
+
             return View(model);
         }
 

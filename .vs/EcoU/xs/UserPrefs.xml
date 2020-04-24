@@ -5,10 +5,10 @@
       <File FileName="appsettings.json" />
       <File FileName="Startup.cs" />
       <File FileName="ViewModels/LoginViewModel.cs" />
-      <File FileName="ViewModels/SignInViewModel.cs" />
+      <File FileName="ViewModels/SignInViewModel.cs" Line="38" Column="9" />
       <File FileName="Validators/SignInAgeAttribute.cs" />
-      <File FileName="Controllers/AccountController.cs" />
-      <File FileName="Views/Account/SignIn.cshtml" />
+      <File FileName="Controllers/AccountController.cs" Line="1" Column="1" />
+      <File FileName="Views/Account/SignIn.cshtml" Line="45" Column="61" />
       <File FileName="Views/_ViewImports.cshtml" />
       <File FileName="Views/_ViewStart.cshtml" />
       <File FileName="Views/Account/LogIn.cshtml" />
@@ -27,14 +27,15 @@
       <File FileName="SampleData/SampleLocationData.cs" />
       <File FileName="Program.cs" />
       <File FileName="SampleData/towns.txt" />
-      <File FileName="ViewModels/CleanPlanViewModel.cs" />
+      <File FileName="ViewModels/CleanPlanViewModel.cs" Line="31" Column="31" />
       <File FileName="Views/CleaningPlans/Create.cshtml" />
       <File FileName="Controllers/LocationsController.cs" />
       <File FileName="Views/CleaningPlans/Index.cshtml" />
-      <File FileName="Views/CleaningPlans/FindingFilter.cshtml" />
-      <File FileName="Views/CleaningPlans/Show.cshtml" />
-      <File FileName="Views/CleaningPlans/Edit.cshtml" Line="34" Column="1" />
-      <File FileName="Controllers/CleaningPlansController.cs" Line="114" Column="14" />
+      <File FileName="Views/CleaningPlans/FindingFilter.cshtml" Line="18" Column="66" />
+      <File FileName="Views/CleaningPlans/Show.cshtml" Line="30" Column="71" />
+      <File FileName="Views/CleaningPlans/Edit.cshtml" Line="43" Column="46" />
+      <File FileName="Controllers/CleaningPlansController.cs" Line="148" Column="43" />
+      <File FileName="ViewModels/IndexPlansModel.cs" Line="9" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -44,6 +45,7 @@
               <Node name="Controllers" expanded="True">
                 <Node name="CleaningPlansController.cs" selected="True" />
               </Node>
+              <Node name="ViewModels" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Account" expanded="True" />
                 <Node name="CleaningPlans" expanded="True" />

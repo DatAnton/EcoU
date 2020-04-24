@@ -2,12 +2,24 @@
     <h4 class="text text-success">Find needed plan!</h4>
     <form method="get" asp-action="Index" asp-controller="CleaningPlans">
         <div id="app">
-        <label for="planNameFind">Find by name: </label>
-        <input name="planNameFind" value="@Model.PlanName" />
+            <lists :location_in="{ region: '@Model.LocationRegionFind', town_id: '@Model.LocationId', planName: '@Model.PlanNameFind' }"></lists>
+        </div>
+    </form>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+
+    Vue.component('lists', {
+	    template: `
+        <div>
+            <label for="planNameFind">Find by name: </label>
+            <input v-model="nameOfPlan" name="planNameFind" />
 
             <div>
                 <label>Region</label>
-                <select v-model="selectedRegion" >
+                <select v-model="selectedRegion" name="LocationRegion">
+                    <option value="All country">All country</option>
                     <option v-for="region in Regions" v-bind:value="region">{{ region }}</option>
                 </select>
             </div>
@@ -16,45 +28,32 @@
                 <label>Town</label>
                  
                 <select name="LocationId" v-model="selectedTown">
-                    <option :value="0">
-                        All region
-                    </option>
-
+                    <option value=0>All region</option>
                     <option v-for="town in Towns" v-bind:value="town.id">{{ town.town }}</option>
                 </select>
             </div>
             <input type="submit" value="Find" class="btn btn-success" />
-            <input type="reset" style="width:auto" value="Reset" class="btn btn-outline-secondary" v-on:click="clearFilters" />
-        </div>
-    </form>
-</div>
-
-<script src="https://unpkg.com/vue"></script>
-<script>
-    var app = new Vue({
-        el: "#app",
-        data: {
-            Regions: Array,
-            selectedRegion: '',
-            Towns: Array,
-            selectedTown: Number
+            <input style="width:auto" type="reset" value="Reset" v-on:click="clearFilters" class="btn btn-outline-secondary" />
+        </div>`,
+        data: function() {
+            return {
+                Regions: Array,
+                selectedRegion: '',
+                Towns: Array,
+                selectedTown: Number,
+                nameOfPlan: ''
+            }
+        },
+        props: {
+            location_in: Object
         },
         mounted: async function(){
             const response = await fetch('/Locations/getRegions');
             const regions = await response.json();
             this.Regions = regions;
-        },
-        methods:{
-            clearFilters: async function(){
-                this.selectedRegion = this.Regions[0];
-                this.selectedTown = 0;
-
-                const response = await fetch(`/Locations/getTowns?region=${this.selectedRegion}`);
-                const towns = await response.json();
-                this.Towns = towns;
-
-                console.log("Filters are reseted.");
-            }
+            this.selectedRegion = this.location_in.region;
+            this.selectedTown = this.location_in.town_id;
+            this.nameOfPlan = this.location_in.planName;
         },
         watch: {
             selectedRegion: async function(){
@@ -62,6 +61,17 @@
                 const towns = await response.json();
                 this.Towns = towns;
             }
+        },
+        methods: {
+            clearFilters: function(){
+                this.selectedRegion = "All country";
+                this.selectedTown = 0;
+                this.nameOfPlan = "";
+            }
         }
     })
+
+    var app = new Vue({
+        el: "#app"
+    });
 </script>

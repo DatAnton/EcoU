@@ -63,7 +63,7 @@
 
             <div>
                 <label>Town</label>
-                <select v-model="selectedTown" name="LocationId">
+                <select v-model="selectedTown" name="locationId">
                     <option v-for="town in Towns" v-bind:value="town.id">{{ town.town }}</option>
                 </select>
                 <span asp-validation-for="LocationId"></span>

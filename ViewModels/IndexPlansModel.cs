@@ -7,8 +7,8 @@ namespace EcoU.ViewModels
     public class IndexPlansModel
     {
         public IEnumerable<CleaningPlan> Plans { get; set; }
-        public int LocationId { get; set; }
-        public Location Location { get; set; }
-        public string PlanName { get; set; }
+        public int? LocationId { get; set; }
+        public string LocationRegionFind { get; set; }
+        public string PlanNameFind { get; set; }
     }
 }
